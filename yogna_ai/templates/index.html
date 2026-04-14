@@ -1,123 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Yojna AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.chat-container {
-  width: 350px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-}
-
-.chat-header {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.chat-box {
-  height: 250px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.message {
-  margin: 5px 0;
-}
-
-.user {
-  text-align: right;
-  color: blue;
-}
-
-.bot {
-  text-align: left;
-  color: green;
-}
-
-.input-box {
-  display: flex;
-}
-
-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  margin-left: 5px;
-  padding: 8px 10px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="function.js" defer></script>
 </head>
-
 <body>
+    <!-- Loader animation -->
+    <figure class="loader" id="loader">
+    <div class="dot white"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</figure>
 
-<div class="chat-container">
-  <div class="chat-header">Yojna AI 🤖</div>
+    <header class = "navbar">
+        <div class="nav-logo hover-effect" href="index.html"></div>
+        <div class="nav-title hover-effect">
+            <a class="nav-link" href="index.html">
+                <p>Government of India</p>
+                <p>भारत सरकार</p>
+            </a>
+        </div>
 
-  <div class="chat-box" id="chatBox"></div>
-
-  <div class="input-box">
-    <input id="msg" placeholder="Enter your income or status...">
-    <button onclick="sendMsg()">Send</button>
-  </div>
-</div>
-
-<script>
-function sendMsg() {
-  let msg = document.getElementById("msg").value;
-  let chatBox = document.getElementById("chatBox");
-
-  if (msg === "") return;
-
-  // Show user message
-  chatBox.innerHTML += "<div class='message user'>You: " + msg + "</div>";
-
-  let reply = "";
-
-  if (msg.toLowerCase().includes("income")) {
-    reply = "You may be eligible for PM Awas Yojana.";
-  } else if (msg.toLowerCase().includes("student")) {
-    reply = "You can apply for scholarship schemes.";
-  } else if (msg.toLowerCase().includes("farmer")) {
-    reply = "You may benefit from PM Kisan Samman Nidhi.";
-  } else {
-    reply = "Tell me your income, occupation or state for better suggestions.";
-  }
-
-  // Show bot reply
-  setTimeout(() => {
-    chatBox.innerHTML += "<div class='message bot'>AI: " + reply + "</div>";
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 500);
-
-  document.getElementById("msg").value = "";
-}
-</script>
-
+    </header>
 </body>
 </html>
